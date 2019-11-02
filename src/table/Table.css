@@ -48,6 +48,7 @@ td {
 
 .cellWidth {
 	width: var(--width);
+	padding: 5px;
 }
 .cellWidth3 {
 	width: calc(var(--width)*3);
