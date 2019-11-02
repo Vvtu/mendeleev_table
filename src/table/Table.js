@@ -63,7 +63,7 @@ function Table() {
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell key="H" elem="H" />
+							<Cell key="He" elem="He" />
 						</td>
 					</tr>
 					<tr>

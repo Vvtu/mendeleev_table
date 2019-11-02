@@ -10,7 +10,7 @@ td {
 }
 
 .mainDiv {
-	margin-top: 70px;
+	margin-top: 40px;
 	display: flex;
 	justify-content: center;
 	align-self: center;
@@ -26,7 +26,7 @@ td {
 .header4,
 .header {
 	font-size: 20px;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 .header {
@@ -48,7 +48,7 @@ td {
 
 .cellWidth {
 	width: var(--width);
-	padding: 5px;
+	padding: 3px;
 }
 .cellWidth3 {
 	width: calc(var(--width)*3);
@@ -67,15 +67,15 @@ td {
 }
 
 .bColorRed {
-	background-color: #ecc3d1;
+	background-color: #e7bac9;
 }
 
 .bColorYellow {
-	background-color: #e6e7bb;
+	background-color: #e7e98f;
 }
 
 .bColorGreen {
-	background-color: #9fbfb0;
+	background-color: #84bea3;
 }
 
 .bColorNoColor,
@@ -84,4 +84,32 @@ td {
 .bColorGreen {
 	height: 100%;
 	width: 100%;
+}
+
+.cellKeyAndNum {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cellFlexStart {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.cellFlexEnd {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.cellFlexStart,
+.cellFlexEnd,
+.cellNum {
+	font-size: 10px;
+}
+
+.cellKey {
+	font-size: 18px;
+	font-weight: 700;
 }
