@@ -1,20 +1,52 @@
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+table,
+th,
+td {
+	height: 40px;
+	padding: 5px;
+	border: 1px solid black;
+}
+
 .mainDiv {
+	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 	align-self: center;
 	width: 100%;
-}
-
-.header {
-	display: flex;
-	justify-content: center;
-	align-self: center;
-	width: 100px;
-	height: 40px;
-	font-size: 20px;
 }
 
 .tableMain {
-	max-width: 800px;
+	max-width: 1024px;
 	width: 100%;
+}
+
+.rowPeriods,
+.header {
+	font-size: 20px;
+	font-weight: 300;
+}
+
+.header {
+	width: 80px;
+}
+
+.header0 {
+	width: 80px;
+	font-size: 12px;
+}
+.header1 {
+	width: 40px;
+	font-size: 12px;
+}
+
+.rowPeriods,
+.mainDiv,
+.header0,
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
