@@ -1,7 +1,7 @@
 import React from 'react';
 import './Table.css';
 
-import Elements from './Elements';
+import Elements from './data/Elements';
 
 function Cell(props) {
 	const { elem, setDragedElemKey, handleOnDrop } = props;

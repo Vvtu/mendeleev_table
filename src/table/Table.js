@@ -15,9 +15,8 @@ function Table() {
 
 	return (
 		<div className="mainDiv">
-			<div className="titleClass">
-				<div>{'ПЕРЕОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА'}</div>
-			</div>
+			<div className="titleClass">{'ПЕРЕОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА'}</div>
+			<div>{'(Переместите один элемент на другой)'}</div>
 			<table className="tableMain">
 				<thead>
 					<tr>
