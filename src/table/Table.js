@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
+import { keyInteractionsMap, elementInteractionsMap } from './data/ElementsInteractions';
 import Cell from './Cell';
+
 import './Table.css';
 
 const arr6 = [ 1, 2, 3, 4, 5, 6 ];
