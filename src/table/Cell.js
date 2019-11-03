@@ -4,9 +4,10 @@ import './Table.css';
 import Elements from './data/Elements';
 
 function Cell(props) {
-	const { elem, setDragedElemKey, handleOnDrop } = props;
+	const { elem, setDragedElemKey, handleOnDrop, opacitySet } = props;
 	const elemInfo = Elements[elem] || {};
-	const color = elemInfo.color ? ' bColor' + elemInfo.color : undefined;
+	let color = elemInfo.color ? ' bColor' + elemInfo.color : undefined;
+	color += opacitySet && opacitySet.has(elem) === false ? ' opacity' : '';
 
 	return (
 		<div

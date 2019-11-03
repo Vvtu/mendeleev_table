@@ -1,6 +1,6 @@
 import Elements from './Elements.js';
 
-export const keyForMap = (elem1, elem2) => {
+const keyForMap = (elem1, elem2) => {
 	if (elem1 && elem2 && elem1 !== elem2) {
 		let num1 = Elements[elem1].num;
 		let num2 = Elements[elem2].num;
@@ -14,8 +14,8 @@ export const keyForMap = (elem1, elem2) => {
 	return 0;
 };
 
-export const keyInteractionsMap = new Map();
-export const elementInteractionsMap = new Map();
+const keyInteractionsMap = new Map();
+const elementInteractionsMap = new Map();
 
 const setInteracitonInfo = (elem1, elem2, value) => {
 	const key = keyForMap(elem1, elem2);
@@ -33,3 +33,5 @@ const setInteracitonInfo = (elem1, elem2, value) => {
 
 setInteracitonInfo('H', 'O', 'Кислород и водород - куча реакций');
 setInteracitonInfo('H', 'Cl', 'водород и хлор - соляная кислота');
+
+export { keyInteractionsMap, elementInteractionsMap, keyForMap };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { keyInteractionsMap, elementInteractionsMap } from './data/ElementsInteractions';
+import { keyInteractionsMap, elementInteractionsMap, keyForMap } from './data/ElementsInteractions';
 import Cell from './Cell';
 
 import './Table.css';
@@ -14,6 +14,9 @@ function Table() {
 	const handleOnDrop = (elemKey) => {
 		setDropElemKey(elemKey);
 	};
+
+	const opacitySet = dropElemKey === '' ? elementInteractionsMap.get(dragedElemKey) : undefined;
+	console.log('opacitySet = ', opacitySet);
 
 	return (
 		<div className="mainDiv">
@@ -63,7 +66,13 @@ function Table() {
 							<div className="rowPeriods">1</div>
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="H" elem="H" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="H"
+								elem="H"
+							/>
 						</td>
 						{arr6.map((item) => (
 							<td key={item}>
@@ -74,7 +83,13 @@ function Table() {
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="He" elem="He" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="He"
+								elem="He"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -86,14 +101,26 @@ function Table() {
 						</td>
 						{[ 'Li', 'Be', 'B', 'C', 'N', 'O', 'F' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td colSpan="3">
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Ne" elem="Ne" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Ne"
+								elem="Ne"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -105,14 +132,26 @@ function Table() {
 						</td>
 						{[ 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td colSpan="3">
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Ar" elem="Ar" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Ar"
+								elem="Ar"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -124,7 +163,13 @@ function Table() {
 						</td>
 						{[ 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td>
@@ -137,14 +182,26 @@ function Table() {
 						</td>
 						{[ 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Br' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td colSpan="3">
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Kr" elem="Kr" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Kr"
+								elem="Kr"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -156,7 +213,13 @@ function Table() {
 						</td>
 						{[ 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td>
@@ -169,14 +232,26 @@ function Table() {
 						</td>
 						{[ 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'I' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td colSpan="3">
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Xe" elem="Xe" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Xe"
+								elem="Xe"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -188,7 +263,13 @@ function Table() {
 						</td>
 						{[ 'Cs', 'Ba', 'La*', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td>
@@ -201,14 +282,26 @@ function Table() {
 						</td>
 						{[ 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td colSpan="3">
 							<div className="cellWidth3" />
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Rn" elem="Rn" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Rn"
+								elem="Rn"
+							/>
 						</td>
 					</tr>
 					<tr>
@@ -220,7 +313,13 @@ function Table() {
 						</td>
 						{[ 'Fr', 'Ra', 'Ac**', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds' ].map((item) => (
 							<td key={item}>
-								<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key={item} elem={item} />
+								<Cell
+									opacitySet={opacitySet}
+									setDragedElemKey={setDragedElemKey}
+									handleOnDrop={handleOnDrop}
+									key={item}
+									elem={item}
+								/>
 							</td>
 						))}
 						<td>
@@ -232,7 +331,13 @@ function Table() {
 							<div className="rowPeriods">11</div>
 						</td>
 						<td>
-							<Cell setDragedElemKey={setDragedElemKey} handleOnDrop={handleOnDrop} key="Rg" elem="Rg" />
+							<Cell
+								opacitySet={opacitySet}
+								setDragedElemKey={setDragedElemKey}
+								handleOnDrop={handleOnDrop}
+								key="Rg"
+								elem="Rg"
+							/>
 						</td>
 						{arr6.map((item) => (
 							<td key={item}>
@@ -248,6 +353,7 @@ function Table() {
 			<div>
 				<div>{'dragedElemKey = ' + dragedElemKey}</div>
 				<div>{'dropElemKey = ' + dropElemKey}</div>
+				{dragedElemKey && dropElemKey && <div>{keyInteractionsMap.get(keyForMap(dragedElemKey, dropElemKey))}</div>}
 			</div>
 		</div>
 	);

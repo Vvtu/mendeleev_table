@@ -119,3 +119,7 @@ td {
 	font-size: 18px;
 	font-weight: 700;
 }
+
+.opacity {
+	opacity: 0.4;
+}
