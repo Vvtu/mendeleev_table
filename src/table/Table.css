@@ -10,7 +10,6 @@ td {
 }
 
 .mainDiv {
-	margin-top: 40px;
 	display: flex;
 	justify-content: center;
 	align-self: center;
@@ -18,7 +17,7 @@ td {
 }
 
 .tableMain {
-	max-width: calc(var(--width) * 12 + var(--rows-width));
+	max-width: calc(var(--width) * 14 + var(--rows-width));
 	width: 100%;
 }
 
@@ -27,6 +26,12 @@ td {
 .header {
 	font-size: 20px;
 	font-weight: 400;
+}
+
+.titleClass {
+	font-size: 20px;
+	font-weight: 500;
+	height: var(--height);
 }
 
 .header {
@@ -60,7 +65,8 @@ td {
 .rowPeriods,
 .mainDiv,
 .header0,
-.header {
+.header,
+.titleClass {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;

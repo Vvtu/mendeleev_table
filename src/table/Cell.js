@@ -4,7 +4,7 @@ import './Table.css';
 import Elements from './Elements';
 
 function Cell(props) {
-	const { elem, setDragedElemKey, setDragOverElemKey, onDragEnd, onDrop } = props;
+	const { elem, setDragedElemKey, handleOnDrop } = props;
 	const elemInfo = Elements[elem] || {};
 	const color = elemInfo.color ? ' bColor' + elemInfo.color : undefined;
 
@@ -12,14 +12,16 @@ function Cell(props) {
 		<div
 			className={color}
 			draggable
-			onDragStart={() => setDragedElemKey(elem)}
-			onDragEnd={onDragEnd}
+			onDragStart={() => {
+				handleOnDrop('');
+				setDragedElemKey(elem);
+			}}
 			onDragOver={(e) => {
 				e.preventDefault();
 			}}
 			onDrop={(e) => {
 				e.preventDefault();
-				onDrop(elem);
+				handleOnDrop(elem);
 			}}
 		>
 			{elemInfo.color === 'Green' ? (
@@ -28,11 +30,7 @@ function Cell(props) {
 						<div className="cellKey">{elem}</div>
 						<div>{elemInfo.num}</div>
 					</div>
-					<div
-						className="cellFlexEnd"
-						onDragEnter={() => setDragOverElemKey(elem)}
-						onDragLeave={() => setDragOverElemKey('')}
-					>
+					<div className="cellFlexEnd">
 						<div>{elemInfo.name}</div>
 					</div>
 					<div className="cellFlexStart">
@@ -45,11 +43,7 @@ function Cell(props) {
 						<div>{elemInfo.num}</div>
 						<div className="cellKey">{elem}</div>
 					</div>
-					<div
-						className="cellFlexStart"
-						onDragEnter={() => setDragOverElemKey(elem)}
-						onDragLeave={() => setDragOverElemKey('')}
-					>
+					<div className="cellFlexStart">
 						<div>{elemInfo.name}</div>
 					</div>
 					<div className="cellFlexEnd">
