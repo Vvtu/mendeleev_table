@@ -26,22 +26,26 @@ const keyForMap = (elem1, elem2) => {
 const keyInteractionsMap = new Map();
 const elementInteractionsMap = new Map();
 
-setTimeout(() => {
-	ElementsInteractions.forEach(({ elem1, elem2, text }) => {
-		console.log('elem1, elem2, text =', elem1, elem2, text);
-		const key = keyForMap(elem1, elem2);
-		if (keyInteractionsMap.get(key)) {
-			throw new Error('Попытка повторно добавить информацию для элементов "' + elem1 + '" и "' + elem2 + '".');
-		}
-		keyInteractionsMap.set(key, text);
-		const set1 = elementInteractionsMap.get(elem1) || new Set();
-		set1.add(elem2);
-		elementInteractionsMap.set(elem1, set1);
-		const set2 = elementInteractionsMap.get(elem2) || new Set();
-		set2.add(elem1);
-		elementInteractionsMap.set(elem2, set2);
-	});
-}, 300);
+ElementsInteractions.forEach(({ elem1, elem2, text }) => {
+	console.log('elem1, elem2, text =', elem1, elem2, text);
+	const key = keyForMap(elem1, elem2);
+	if (keyInteractionsMap.get(key)) {
+		throw new Error(
+			'Попытка повторно добавить информацию для элементов "' +
+				elem1 +
+				'" и "' +
+				elem2 +
+				'".',
+		);
+	}
+	keyInteractionsMap.set(key, text);
+	const set1 = elementInteractionsMap.get(elem1) || new Set();
+	set1.add(elem2);
+	elementInteractionsMap.set(elem1, set1);
+	const set2 = elementInteractionsMap.get(elem2) || new Set();
+	set2.add(elem1);
+	elementInteractionsMap.set(elem2, set2);
+});
 
 function Table() {
 	const [ dragedElemKey, setDragedElemKey ] = useState('');
@@ -51,15 +55,36 @@ function Table() {
 		setDropElemKey(elemKey);
 	};
 
-	const opacitySet = dropElemKey === '' ? elementInteractionsMap.get(dragedElemKey) : undefined;
+	const closeModal = () => {
+		setDragedElemKey('');
+		setDropElemKey('');
+	};
+
+	const opacitySet =
+		dropElemKey === ''
+			? elementInteractionsMap.get(dragedElemKey)
+			: undefined;
 	console.log('opacitySet = ', opacitySet);
 
 	return (
 		<div>
-			<Modal />
+			{dragedElemKey &&
+			dropElemKey && (
+				<Modal
+					dragedElemKey={dragedElemKey}
+					dropElemKey={dropElemKey}
+					text={keyInteractionsMap.get(
+						keyForMap(dragedElemKey, dropElemKey),
+					)}
+					closeModal={closeModal}
+				/>
+			)}
 			<div className="mainDiv">
-				<div className="titleClass">{'ПЕРЕОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА'}</div>
-				<div>{'(Переместите один элемент на другой)'}</div>
+				<div className="titleClass">
+					{
+						'ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА'
+					}
+				</div>
 				<table className="tableMain">
 					<thead>
 						<tr>
@@ -168,7 +193,15 @@ function Table() {
 							<td>
 								<div className="rowPeriods">3</div>
 							</td>
-							{[ 'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl' ].map((item) => (
+							{[
+								'Na',
+								'Mg',
+								'Al',
+								'Si',
+								'P',
+								'S',
+								'Cl',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -199,7 +232,18 @@ function Table() {
 							<td>
 								<div className="rowPeriods">4</div>
 							</td>
-							{[ 'K', 'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni' ].map((item) => (
+							{[
+								'K',
+								'Ca',
+								'Sc',
+								'Ti',
+								'V',
+								'Cr',
+								'Mn',
+								'Fe',
+								'Co',
+								'Ni',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -218,7 +262,15 @@ function Table() {
 							<td>
 								<div className="rowPeriods">5</div>
 							</td>
-							{[ 'Cu', 'Zn', 'Ga', 'Ge', 'As', 'Se', 'Br' ].map((item) => (
+							{[
+								'Cu',
+								'Zn',
+								'Ga',
+								'Ge',
+								'As',
+								'Se',
+								'Br',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -249,7 +301,18 @@ function Table() {
 							<td>
 								<div className="rowPeriods">6</div>
 							</td>
-							{[ 'Rb', 'Sr', 'Y', 'Zr', 'Nb', 'Mo', 'Tc', 'Ru', 'Rh', 'Pd' ].map((item) => (
+							{[
+								'Rb',
+								'Sr',
+								'Y',
+								'Zr',
+								'Nb',
+								'Mo',
+								'Tc',
+								'Ru',
+								'Rh',
+								'Pd',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -268,7 +331,15 @@ function Table() {
 							<td>
 								<div className="rowPeriods">7</div>
 							</td>
-							{[ 'Ag', 'Cd', 'In', 'Sn', 'Sb', 'Te', 'I' ].map((item) => (
+							{[
+								'Ag',
+								'Cd',
+								'In',
+								'Sn',
+								'Sb',
+								'Te',
+								'I',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -299,7 +370,18 @@ function Table() {
 							<td>
 								<div className="rowPeriods">8</div>
 							</td>
-							{[ 'Cs', 'Ba', 'La*', 'Hf', 'Ta', 'W', 'Re', 'Os', 'Ir', 'Pt' ].map((item) => (
+							{[
+								'Cs',
+								'Ba',
+								'La*',
+								'Hf',
+								'Ta',
+								'W',
+								'Re',
+								'Os',
+								'Ir',
+								'Pt',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -318,7 +400,15 @@ function Table() {
 							<td>
 								<div className="rowPeriods">9</div>
 							</td>
-							{[ 'Au', 'Hg', 'Tl', 'Pb', 'Bi', 'Po', 'At' ].map((item) => (
+							{[
+								'Au',
+								'Hg',
+								'Tl',
+								'Pb',
+								'Bi',
+								'Po',
+								'At',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -349,7 +439,18 @@ function Table() {
 							<td>
 								<div className="rowPeriods">10</div>
 							</td>
-							{[ 'Fr', 'Ra', 'Ac**', 'Rf', 'Db', 'Sg', 'Bh', 'Hs', 'Mt', 'Ds' ].map((item) => (
+							{[
+								'Fr',
+								'Ra',
+								'Ac**',
+								'Rf',
+								'Db',
+								'Sg',
+								'Bh',
+								'Hs',
+								'Mt',
+								'Ds',
+							].map((item) => (
 								<td key={item}>
 									<Cell
 										opacitySet={opacitySet}
@@ -388,10 +489,8 @@ function Table() {
 						</tr>
 					</tbody>
 				</table>
-				<div>
-					<div>{'dragedElemKey = ' + dragedElemKey}</div>
-					<div>{'dropElemKey = ' + dropElemKey}</div>
-					{dragedElemKey && dropElemKey && <div>{keyInteractionsMap.get(keyForMap(dragedElemKey, dropElemKey))}</div>}
+				<div className="infoMessage">
+					{'(Переместите один элемент на другой)'}
 				</div>
 			</div>
 		</div>

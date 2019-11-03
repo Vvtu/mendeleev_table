@@ -5,20 +5,25 @@ import CancelIcon from './CancelIcon';
 import './Modal.css';
 
 function Modal(props) {
-	const { setDragedElemKey } = props;
+	const { text, closeModal } = props;
 	console.log('Modal props = ', props);
 	return (
-		<div>
+		<div onClick={closeModal}>
 			<div className="popup__full_screen_div_opacity" />
 			<div className="popup__full_screen_div">
 				<div className="popup__window">
 					<div className="popup__cancel">
-						<CancelIcon fill={'#FFFFFF'} height={16} onClick={(e) => {}} width={16} />
+						<CancelIcon
+							fill={'black'}
+							height={16}
+							onClick={closeModal}
+							width={16}
+						/>
 					</div>
-					<div className="popup__list">
-						sdfsdfsfsd
-						{setDragedElemKey}
+					<div className="popup__title">
+						Взаимодействие элементов:
 					</div>
+					<div className="popup__list">{text}</div>
 				</div>
 			</div>
 		</div>

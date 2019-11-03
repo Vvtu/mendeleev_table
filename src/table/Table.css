@@ -31,6 +31,7 @@ td {
 .titleClass {
 	font-size: 20px;
 	font-weight: 500;
+	padding: 8px 0 8px 0;
 }
 
 .header {
@@ -122,4 +123,9 @@ td {
 
 .opacity {
 	opacity: 0.4;
+}
+
+.infoMessage {
+	padding-top: 8px;
+	font-size: 12px;
 }
