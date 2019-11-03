@@ -1,11 +1,46 @@
 import React, { useState } from 'react';
 
-import { keyInteractionsMap, elementInteractionsMap, keyForMap } from './data/ElementsInteractions';
 import Cell from './Cell';
+import Elements from './data/Elements.js';
+import ElementsInteractions from './data/ElementsInteractions.js';
 
 import './Table.css';
 
 const arr6 = [ 1, 2, 3, 4, 5, 6 ];
+
+const keyForMap = (elem1, elem2) => {
+	if (elem1 && elem2 && elem1 !== elem2) {
+		let num1 = Elements[elem1].num;
+		let num2 = Elements[elem2].num;
+		if (num1 > num2) {
+			const a = num1;
+			num1 = num2;
+			num2 = a;
+		}
+		return num1 * 1000 + num2;
+	}
+	return 0;
+};
+
+const keyInteractionsMap = new Map();
+const elementInteractionsMap = new Map();
+
+setTimeout(() => {
+	ElementsInteractions.forEach(({ elem1, elem2, text }) => {
+		console.log('elem1, elem2, text =', elem1, elem2, text);
+		const key = keyForMap(elem1, elem2);
+		if (keyInteractionsMap.get(key)) {
+			throw new Error('Попытка повторно добавить информацию для элементов "' + elem1 + '" и "' + elem2 + '".');
+		}
+		keyInteractionsMap.set(key, text);
+		const set1 = elementInteractionsMap.get(elem1) || new Set();
+		set1.add(elem2);
+		elementInteractionsMap.set(elem1, set1);
+		const set2 = elementInteractionsMap.get(elem2) || new Set();
+		set2.add(elem1);
+		elementInteractionsMap.set(elem2, set2);
+	});
+}, 300);
 
 function Table() {
 	const [ dragedElemKey, setDragedElemKey ] = useState('');
