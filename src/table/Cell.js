@@ -32,6 +32,10 @@ function Cell(props) {
 				e.preventDefault();
 				handleOnDrop(elem);
 			}}
+			onClick={() => {
+				setDragedElemKey('*');
+				handleOnDrop('*');
+			}}
 		>
 			{elemInfo.color === 'Green' ? (
 				<div className="cellWidth">

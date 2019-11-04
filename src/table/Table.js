@@ -27,7 +27,7 @@ const keyInteractionsMap = new Map();
 const elementInteractionsMap = new Map();
 
 ElementsInteractions.forEach(({ elem1, elem2, text }) => {
-	console.log('elem1, elem2, text =', elem1, elem2, text);
+	// console.log('elem1, elem2, text =', elem1, elem2, text);
 	const key = keyForMap(elem1, elem2);
 	if (keyInteractionsMap.get(key)) {
 		throw new Error(
@@ -64,18 +64,25 @@ function Table() {
 		dragedElemKey !== '' && dropElemKey === ''
 			? elementInteractionsMap.get(dragedElemKey) || new Set()
 			: undefined;
-	console.log('activeElementsSet = ', activeElementsSet);
+
+	let text = '';
+	if (dragedElemKey && dropElemKey) {
+		if (dragedElemKey === '*') {
+			text = 'Переместите один элемент на другой';
+		} else {
+			text = keyInteractionsMap.get(
+				keyForMap(dragedElemKey, dropElemKey),
+			);
+		}
+	}
 
 	return (
 		<div>
-			{dragedElemKey &&
-			dropElemKey && (
+			{text && (
 				<Modal
 					dragedElemKey={dragedElemKey}
 					dropElemKey={dropElemKey}
-					text={keyInteractionsMap.get(
-						keyForMap(dragedElemKey, dropElemKey),
-					)}
+					text={text}
 					closeModal={closeModal}
 				/>
 			)}
