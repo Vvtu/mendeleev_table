@@ -27,38 +27,44 @@ function Modal(props) {
 					) : (
 						<Fragment>
 							<div className="popup__title">Информация:</div>
-							<table className="cellWidth">
-								<thead>
-									<tr>
-										<th>
-											<Cell
-												activeElementsSet={undefined}
-												setDragedElemKey={noop}
-												handleOnDrop={noop}
-												elem={dragedElemKey}
-											/>
-										</th>
-									</tr>
-								</thead>
-							</table>
-							<table className="cellWidth">
-								<thead>
-									<tr>
-										<th>
-											<Cell
-												activeElementsSet={undefined}
-												setDragedElemKey={noop}
-												handleOnDrop={noop}
-												elem={dropElemKey}
-											/>
-										</th>
-									</tr>
-								</thead>
-							</table>
+
+							<div className="modalElementsDiv">
+								<div className="modalElements">
+									<table className="cellWidth">
+										<thead>
+											<tr>
+												<th>
+													<Cell
+														activeElementsSet={undefined}
+														setDragedElemKey={noop}
+														handleOnDrop={noop}
+														elem={dragedElemKey}
+													/>
+												</th>
+											</tr>
+										</thead>
+									</table>
+									<div>и</div>
+									<table className="cellWidth">
+										<thead>
+											<tr>
+												<th>
+													<Cell
+														activeElementsSet={undefined}
+														setDragedElemKey={noop}
+														handleOnDrop={noop}
+														elem={dropElemKey}
+													/>
+												</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
 							<div className="popup__list">
 								{keyInteractionsMap.get(
 									keyForMap(dragedElemKey, dropElemKey),
-								)}
+								) || 'Нет информации о веществах из этих элементах'}
 							</div>
 						</Fragment>
 					)}

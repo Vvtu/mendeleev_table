@@ -64,3 +64,17 @@
 	justify-content: flex-end;
 	align-items: center;
 }
+
+.modalElementsDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modalElements {
+	height: calc(var(--height) * 2);
+	width: calc(var(--width) * 3);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
