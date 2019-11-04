@@ -44,11 +44,9 @@ td {
 
 .header0 {
 	width: var(--width);
-	font-size: 12px;
 }
 .header1 {
 	width: var(--rows-width);
-	font-size: 12px;
 }
 
 .cellWidth {
@@ -118,7 +116,7 @@ td {
 }
 
 .cellKey {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 700;
 }
 
@@ -128,5 +126,4 @@ td {
 
 .infoMessage {
 	padding-top: 8px;
-	font-size: 12px;
 }
