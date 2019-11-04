@@ -65,25 +65,16 @@ function Table() {
 			? elementInteractionsMap.get(dragedElemKey) || new Set()
 			: undefined;
 
-	let text = '';
-	if (dragedElemKey && dropElemKey) {
-		if (dragedElemKey === '*') {
-			text = 'Переместите один элемент на другой';
-		} else {
-			text = keyInteractionsMap.get(
-				keyForMap(dragedElemKey, dropElemKey),
-			);
-		}
-	}
-
 	return (
 		<div>
-			{text && (
+			{dragedElemKey &&
+			dropElemKey && (
 				<Modal
 					dragedElemKey={dragedElemKey}
 					dropElemKey={dropElemKey}
-					text={text}
 					closeModal={closeModal}
+					keyInteractionsMap={keyInteractionsMap}
+					keyForMap={keyForMap}
 				/>
 			)}
 			<div className="mainDiv">

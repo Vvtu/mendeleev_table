@@ -104,6 +104,7 @@ td {
 	justify-content: flex-start;
 	align-items: center;
 }
+
 .cellFlexEnd {
 	display: flex;
 	justify-content: flex-end;
