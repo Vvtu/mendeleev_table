@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9643f7877720629d561f89e9055bc8c7",
+    "revision": "9b0a7ce99628cd170cd466c93e0b37b2",
     "url": "/mendeleev_table/index.html"
   },
   {
-    "revision": "e4f4723f8882bcb80fe4",
-    "url": "/mendeleev_table/static/css/main.4df5b28a.chunk.css"
+    "revision": "73539f670c04c9a6109f",
+    "url": "/mendeleev_table/static/css/main.b70ebc32.chunk.css"
   },
   {
     "revision": "868f6a15c2c82f73fd87",
     "url": "/mendeleev_table/static/js/2.c9b9a9aa.chunk.js"
   },
   {
-    "revision": "e4f4723f8882bcb80fe4",
+    "revision": "73539f670c04c9a6109f",
     "url": "/mendeleev_table/static/js/main.8b250bf7.chunk.js"
   },
   {
