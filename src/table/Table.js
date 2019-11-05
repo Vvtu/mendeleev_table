@@ -66,7 +66,7 @@ function Table() {
 			: undefined;
 
 	return (
-		<div>
+		<div className="centered">
 			{dragedElemKey &&
 			dropElemKey && (
 				<Modal
