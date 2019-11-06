@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fafef0535087ef3edb13915f5e583c5a",
+    "revision": "6dd6fa8a72e50cccaf4dde6a50cf0479",
     "url": "/mendeleev_table/index.html"
   },
   {
