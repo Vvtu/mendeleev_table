@@ -4,12 +4,13 @@ import './Table.css';
 import Elements from './data/Elements';
 
 function Cell(props) {
+	const { elem, cellProps } = props;
 	const {
-		elem,
+		activeElementsSet,
 		setDragedElemKey,
 		handleOnDrop,
-		activeElementsSet,
-	} = props;
+	} = cellProps;
+
 	const elemInfo = Elements[elem] || {};
 	let color = elemInfo.color ? ' bColor' + elemInfo.color : '';
 	const opacity = activeElementsSet

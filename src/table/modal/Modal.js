@@ -3,7 +3,11 @@ import React, { Fragment } from 'react';
 import Cell from '../Cell';
 import './Modal.css';
 
-const noop = () => {};
+const cellProps = {
+	activeElementsSet: undefined,
+	setDragedElemKey: () => {},
+	handleOnDrop: () => {},
+};
 
 function Modal(props) {
 	const {
@@ -35,9 +39,7 @@ function Modal(props) {
 											<tr>
 												<th>
 													<Cell
-														activeElementsSet={undefined}
-														setDragedElemKey={noop}
-														handleOnDrop={noop}
+														cellProps={cellProps}
 														elem={dragedElemKey}
 													/>
 												</th>
@@ -50,9 +52,7 @@ function Modal(props) {
 											<tr>
 												<th>
 													<Cell
-														activeElementsSet={undefined}
-														setDragedElemKey={noop}
-														handleOnDrop={noop}
+														cellProps={cellProps}
 														elem={dropElemKey}
 													/>
 												</th>

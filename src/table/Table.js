@@ -65,6 +65,12 @@ function Table() {
 			? elementInteractionsMap.get(dragedElemKey) || new Set()
 			: undefined;
 
+	const cellProps = {
+		activeElementsSet,
+		setDragedElemKey,
+		handleOnDrop,
+	};
+
 	return (
 		<div className="centered">
 			{dragedElemKey &&
@@ -127,13 +133,7 @@ function Table() {
 								<div className="rowPeriods">1</div>
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="H"
-									elem="H"
-								/>
+								<Cell cellProps={cellProps} key="H" elem="H" />
 							</td>
 							{arr6.map((item) => (
 								<td key={item}>
@@ -144,13 +144,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="He"
-									elem="He"
-								/>
+								<Cell cellProps={cellProps} key="He" elem="He" />
 							</td>
 						</tr>
 						<tr>
@@ -163,9 +157,7 @@ function Table() {
 							{[ 'Li', 'Be', 'B', 'C', 'N', 'O', 'F' ].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -175,13 +167,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Ne"
-									elem="Ne"
-								/>
+								<Cell cellProps={cellProps} key="Ne" elem="Ne" />
 							</td>
 						</tr>
 						<tr>
@@ -202,9 +188,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -214,13 +198,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Ar"
-									elem="Ar"
-								/>
+								<Cell cellProps={cellProps} key="Ar" elem="Ar" />
 							</td>
 						</tr>
 						<tr>
@@ -244,9 +222,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -271,9 +247,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -283,13 +257,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Kr"
-									elem="Kr"
-								/>
+								<Cell cellProps={cellProps} key="Kr" elem="Kr" />
 							</td>
 						</tr>
 						<tr>
@@ -313,9 +281,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -340,9 +306,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -352,13 +316,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Xe"
-									elem="Xe"
-								/>
+								<Cell cellProps={cellProps} key="Xe" elem="Xe" />
 							</td>
 						</tr>
 						<tr>
@@ -382,9 +340,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -409,9 +365,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -421,13 +375,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Rn"
-									elem="Rn"
-								/>
+								<Cell cellProps={cellProps} key="Rn" elem="Rn" />
 							</td>
 						</tr>
 						<tr>
@@ -451,9 +399,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										activeElementsSet={activeElementsSet}
-										setDragedElemKey={setDragedElemKey}
-										handleOnDrop={handleOnDrop}
+										cellProps={cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -468,13 +414,7 @@ function Table() {
 								<div className="rowPeriods">11</div>
 							</td>
 							<td>
-								<Cell
-									activeElementsSet={activeElementsSet}
-									setDragedElemKey={setDragedElemKey}
-									handleOnDrop={handleOnDrop}
-									key="Rg"
-									elem="Rg"
-								/>
+								<Cell cellProps={cellProps} key="Rg" elem="Rg" />
 							</td>
 							{arr6.map((item) => (
 								<td key={item}>
