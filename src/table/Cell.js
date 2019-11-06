@@ -11,7 +11,7 @@ function Cell(props) {
 		activeElementsSet,
 	} = props;
 	const elemInfo = Elements[elem] || {};
-	let color = elemInfo.color ? ' bColor' + elemInfo.color : undefined;
+	let color = elemInfo.color ? ' bColor' + elemInfo.color : '';
 	const opacity = activeElementsSet
 		? activeElementsSet.has(elem) ? '' : ' opacity'
 		: '';

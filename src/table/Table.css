@@ -96,6 +96,7 @@ td {
 .bColorGreen {
 	height: 100%;
 	width: 100%;
+	user-select: none; /* Required to make elements draggable in old WebKit */
 }
 
 .cellKeyAndNum {
