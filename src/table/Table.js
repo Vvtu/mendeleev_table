@@ -70,7 +70,7 @@ function Table() {
 	return (
 		<div className="centered">
 			{dragedElemKey &&
-				dropElemKey && (
+				dropElemKey ? (
 					<Modal
 						dragedElemKey={dragedElemKey}
 						dropElemKey={dropElemKey}
@@ -78,13 +78,9 @@ function Table() {
 						keyInteractionsMap={keyInteractionsMap}
 						keyForMap={keyForMap}
 					/>
-				)}
+				) : null}
 			<div className="mainDiv">
-				<div className="titleClass">
-					{
-						'ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА'
-					}
-				</div>
+				<div className="titleClass">ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА</div>
 				<table className="tableMain">
 					<thead>
 						<tr>

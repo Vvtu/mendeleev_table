@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import Cell from '../Cell';
 import './Modal.css';
 
+const NO_INFORMATION = () => <div>Нет информации о веществах из этих элементах</div>;
+
 const cellProps = {
 	activeElementsSet: undefined,
 	setDragedElemKey: () => { },
@@ -20,7 +22,7 @@ function Modal(props) {
 	console.log('Modal props = ', props);
 
 	const Message = keyInteractionsMap.get(
-		keyForMap(dragedElemKey, dropElemKey)) || (() => <div>Нет информации о веществах из этих элементах</div>);
+		keyForMap(dragedElemKey, dropElemKey)) || NO_INFORMATION;
 
 	return (
 		<div onClick={closeModal}>
