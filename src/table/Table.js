@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import Cell from './Cell';
 import Elements from './data/Elements';
@@ -7,7 +7,7 @@ import Modal from './modal/Modal';
 
 import './Table.css';
 
-const arr6 = [ 1, 2, 3, 4, 5, 6 ];
+const arr6 = [1, 2, 3, 4, 5, 6];
 
 const keyForMap = (elem1, elem2) => {
 	if (elem1 && elem2 && elem1 !== elem2) {
@@ -32,10 +32,10 @@ ElementsInteractions.forEach(({ elem1, elem2, text }) => {
 	if (keyInteractionsMap.get(key)) {
 		throw new Error(
 			'Попытка повторно добавить информацию для элементов "' +
-				elem1 +
-				'" и "' +
-				elem2 +
-				'".',
+			elem1 +
+			'" и "' +
+			elem2 +
+			'".',
 		);
 	}
 	keyInteractionsMap.set(key, text);
@@ -48,17 +48,13 @@ ElementsInteractions.forEach(({ elem1, elem2, text }) => {
 });
 
 function Table() {
-	const [ dragedElemKey, setDragedElemKey ] = useState('');
-	const [ dropElemKey, setDropElemKey ] = useState('');
+	const [dragedElemKey, setDragedElemKey] = useState('');
+	const [dropElemKey, handleOnDrop] = useState('');
 
-	const handleOnDrop = (elemKey) => {
-		setDropElemKey(elemKey);
-	};
-
-	const closeModal = () => {
+	const closeModal = useCallback(() => {
 		setDragedElemKey('');
-		setDropElemKey('');
-	};
+		handleOnDrop('');
+	}, []);
 
 	const activeElementsSet =
 		dragedElemKey !== '' && dropElemKey === ''
@@ -74,15 +70,15 @@ function Table() {
 	return (
 		<div className="centered">
 			{dragedElemKey &&
-			dropElemKey && (
-				<Modal
-					dragedElemKey={dragedElemKey}
-					dropElemKey={dropElemKey}
-					closeModal={closeModal}
-					keyInteractionsMap={keyInteractionsMap}
-					keyForMap={keyForMap}
-				/>
-			)}
+				dropElemKey && (
+					<Modal
+						dragedElemKey={dragedElemKey}
+						dropElemKey={dropElemKey}
+						closeModal={closeModal}
+						keyInteractionsMap={keyInteractionsMap}
+						keyForMap={keyForMap}
+					/>
+				)}
 			<div className="mainDiv">
 				<div className="titleClass">
 					{
@@ -133,7 +129,7 @@ function Table() {
 								<div className="rowPeriods">1</div>
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="H" elem="H" />
+								<Cell {...cellProps} key="H" elem="H" />
 							</td>
 							{arr6.map((item) => (
 								<td key={item}>
@@ -144,7 +140,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="He" elem="He" />
+								<Cell {...cellProps} key="He" elem="He" />
 							</td>
 						</tr>
 						<tr>
@@ -154,10 +150,10 @@ function Table() {
 							<td>
 								<div className="rowPeriods">2</div>
 							</td>
-							{[ 'Li', 'Be', 'B', 'C', 'N', 'O', 'F' ].map((item) => (
+							{['Li', 'Be', 'B', 'C', 'N', 'O', 'F'].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -167,7 +163,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Ne" elem="Ne" />
+								<Cell {...cellProps} key="Ne" elem="Ne" />
 							</td>
 						</tr>
 						<tr>
@@ -188,7 +184,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -198,7 +194,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Ar" elem="Ar" />
+								<Cell {...cellProps} key="Ar" elem="Ar" />
 							</td>
 						</tr>
 						<tr>
@@ -222,7 +218,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -247,7 +243,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -257,7 +253,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Kr" elem="Kr" />
+								<Cell {...cellProps} key="Kr" elem="Kr" />
 							</td>
 						</tr>
 						<tr>
@@ -281,7 +277,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -306,7 +302,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -316,7 +312,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Xe" elem="Xe" />
+								<Cell {...cellProps} key="Xe" elem="Xe" />
 							</td>
 						</tr>
 						<tr>
@@ -340,7 +336,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -365,7 +361,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -375,7 +371,7 @@ function Table() {
 								<div className="cellWidth3" />
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Rn" elem="Rn" />
+								<Cell {...cellProps} key="Rn" elem="Rn" />
 							</td>
 						</tr>
 						<tr>
@@ -399,7 +395,7 @@ function Table() {
 							].map((item) => (
 								<td key={item}>
 									<Cell
-										cellProps={cellProps}
+										{...cellProps}
 										key={item}
 										elem={item}
 									/>
@@ -414,7 +410,7 @@ function Table() {
 								<div className="rowPeriods">11</div>
 							</td>
 							<td>
-								<Cell cellProps={cellProps} key="Rg" elem="Rg" />
+								<Cell {...cellProps} key="Rg" elem="Rg" />
 							</td>
 							{arr6.map((item) => (
 								<td key={item}>
