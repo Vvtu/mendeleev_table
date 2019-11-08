@@ -61,10 +61,10 @@ td {
 	padding: 3px;
 }
 .cellWidth3 {
-	width: calc(var(--width)*3);
+	width: calc(var(--width) * 3);
 }
 .cellWidth4 {
-	width: calc(var(--width)*4);
+	width: calc(var(--width) * 4);
 }
 
 .rowPeriods,
@@ -94,6 +94,7 @@ td {
 .bColorRed,
 .bColorYellow,
 .bColorGreen {
+	cursor: grab;
 	height: 100%;
 	width: 100%;
 	user-select: none; /* Required to make elements draggable in old WebKit */
