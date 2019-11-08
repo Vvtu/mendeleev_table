@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mendeleev_table/precache-manifest.6dd1fbc33d495cdffdea8b11bdd145a7.js"
+  "/mendeleev_table/precache-manifest.37ae3dfd9d384e7f4150f2cdcf005ca9.js"
 );
 
 self.addEventListener('message', (event) => {
