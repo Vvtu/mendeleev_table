@@ -26,8 +26,8 @@ const keyForMap = (elem1, elem2) => {
 const keyInteractionsMap = new Map();
 const elementInteractionsMap = new Map();
 
-ElementsInteractions.forEach(({ elem1, elem2, text }) => {
-	// console.log('elem1, elem2, text =', elem1, elem2, text);
+ElementsInteractions.forEach(({ elem1, elem2, message }) => {
+	// console.log('elem1, elem2, message =', elem1, elem2, message);
 	const key = keyForMap(elem1, elem2);
 	if (keyInteractionsMap.get(key)) {
 		throw new Error(
@@ -38,7 +38,7 @@ ElementsInteractions.forEach(({ elem1, elem2, text }) => {
 			'".',
 		);
 	}
-	keyInteractionsMap.set(key, text);
+	keyInteractionsMap.set(key, message);
 	const set1 = elementInteractionsMap.get(elem1) || new Set();
 	set1.add(elem2);
 	elementInteractionsMap.set(elem1, set1);

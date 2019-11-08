@@ -5,8 +5,8 @@ import './Modal.css';
 
 const cellProps = {
 	activeElementsSet: undefined,
-	setDragedElemKey: () => {},
-	handleOnDrop: () => {},
+	setDragedElemKey: () => { },
+	handleOnDrop: () => { },
 };
 
 function Modal(props) {
@@ -19,6 +19,9 @@ function Modal(props) {
 	} = props;
 	console.log('Modal props = ', props);
 
+	const Message = keyInteractionsMap.get(
+		keyForMap(dragedElemKey, dropElemKey)) || (() => <div>Нет информации о веществах из этих элементах</div>);
+
 	return (
 		<div onClick={closeModal}>
 			<div className="popup__full_screen_div_opacity" />
@@ -29,45 +32,43 @@ function Modal(props) {
 							Переместите один элемент на другой
 						</div>
 					) : (
-						<Fragment>
-							<div className="popup__title">Информация:</div>
+							<Fragment>
+								<div className="popup__title">Информация:</div>
 
-							<div className="modalElementsDiv">
-								<div className="modalElements">
-									<table className="cellWidth">
-										<thead>
-											<tr>
-												<th>
-													<Cell
-														cellProps={cellProps}
-														elem={dragedElemKey}
-													/>
-												</th>
-											</tr>
-										</thead>
-									</table>
-									<div>и</div>
-									<table className="cellWidth">
-										<thead>
-											<tr>
-												<th>
-													<Cell
-														cellProps={cellProps}
-														elem={dropElemKey}
-													/>
-												</th>
-											</tr>
-										</thead>
-									</table>
+								<div className="modalElementsDiv">
+									<div className="modalElements">
+										<table className="cellWidth">
+											<thead>
+												<tr>
+													<th>
+														<Cell
+															cellProps={cellProps}
+															elem={dragedElemKey}
+														/>
+													</th>
+												</tr>
+											</thead>
+										</table>
+										<div>и</div>
+										<table className="cellWidth">
+											<thead>
+												<tr>
+													<th>
+														<Cell
+															cellProps={cellProps}
+															elem={dropElemKey}
+														/>
+													</th>
+												</tr>
+											</thead>
+										</table>
+									</div>
 								</div>
-							</div>
-							<div className="popup__list">
-								{keyInteractionsMap.get(
-									keyForMap(dragedElemKey, dropElemKey),
-								) || 'Нет информации о веществах из этих элементах'}
-							</div>
-						</Fragment>
-					)}
+								<div className="popup__list">
+									<Message />
+								</div>
+							</Fragment>
+						)}
 					<div className="modalButton">
 						<button>Закрыть</button>
 					</div>
