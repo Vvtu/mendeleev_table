@@ -111,7 +111,7 @@ function Table() {
 							<th>
 								<div className="header">VII</div>
 							</th>
-							<th colSpan="4">
+							<th colSpan={4}>
 								<div className="header4">VIII</div>
 							</th>
 						</tr>
@@ -132,7 +132,7 @@ function Table() {
 									<div className="cellWidth" />
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -155,7 +155,7 @@ function Table() {
 									/>
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -186,7 +186,7 @@ function Table() {
 									/>
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -194,7 +194,7 @@ function Table() {
 							</td>
 						</tr>
 						<tr>
-							<td rowSpan="2">
+							<td rowSpan={2}>
 								<div className="rowPeriods">IV</div>
 							</td>
 							<td>
@@ -245,7 +245,7 @@ function Table() {
 									/>
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -253,7 +253,7 @@ function Table() {
 							</td>
 						</tr>
 						<tr>
-							<td rowSpan="2">
+							<td rowSpan={2}>
 								<div className="rowPeriods">V</div>
 							</td>
 							<td>
@@ -304,7 +304,7 @@ function Table() {
 									/>
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -312,7 +312,7 @@ function Table() {
 							</td>
 						</tr>
 						<tr>
-							<td rowSpan="2">
+							<td rowSpan={2}>
 								<div className="rowPeriods">VI</div>
 							</td>
 							<td>
@@ -363,7 +363,7 @@ function Table() {
 									/>
 								</td>
 							))}
-							<td colSpan="3">
+							<td colSpan={3}>
 								<div className="cellWidth3" />
 							</td>
 							<td>
@@ -371,7 +371,7 @@ function Table() {
 							</td>
 						</tr>
 						<tr>
-							<td rowSpan="2">
+							<td rowSpan={2}>
 								<div className="rowPeriods">VII</div>
 							</td>
 							<td>
@@ -413,7 +413,7 @@ function Table() {
 									<div className="cellWidth" />
 								</td>
 							))}
-							<td colSpan="4">
+							<td colSpan={4}>
 								<div className="cellWidth4" />
 							</td>
 						</tr>
