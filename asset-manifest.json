@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mendeleev_table/static/css/main.243a357b.chunk.css",
+    "main.css": "/mendeleev_table/static/css/main.cfb59b33.chunk.css",
     "main.js": "/mendeleev_table/static/js/main.573bb65f.chunk.js",
     "runtime-main.js": "/mendeleev_table/static/js/runtime-main.f559cb85.js",
     "static/js/2.c9b9a9aa.chunk.js": "/mendeleev_table/static/js/2.c9b9a9aa.chunk.js",
     "index.html": "/mendeleev_table/index.html",
-    "precache-manifest.37ae3dfd9d384e7f4150f2cdcf005ca9.js": "/mendeleev_table/precache-manifest.37ae3dfd9d384e7f4150f2cdcf005ca9.js",
+    "precache-manifest.d42da432f3e92f932e9bad26cef90eea.js": "/mendeleev_table/precache-manifest.d42da432f3e92f932e9bad26cef90eea.js",
     "service-worker.js": "/mendeleev_table/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.f559cb85.js",
     "static/js/2.c9b9a9aa.chunk.js",
-    "static/css/main.243a357b.chunk.css",
+    "static/css/main.cfb59b33.chunk.css",
     "static/js/main.573bb65f.chunk.js"
   ]
 }
