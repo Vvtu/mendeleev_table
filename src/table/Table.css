@@ -38,7 +38,10 @@ td {
 .titleClass {
 	font-size: 20px;
 	font-weight: 500;
-	padding: 8px 0 8px 0;
+	padding: 8px 0 8px 2px;
+	background-color: #e8a87c;
+	max-width: calc(var(--width) * 14 + var(--rows-width));
+	width: 100%;
 }
 
 .header {
@@ -71,7 +74,8 @@ td {
 .mainDiv,
 .header0,
 .header,
-.titleClass {
+.titleClass,
+.infoMessage {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -134,5 +138,8 @@ td {
 }
 
 .infoMessage {
-	padding-top: 8px;
+	padding: 8px 0 8px 2px;
+	background-color: #e8a87c;
+	max-width: calc(var(--width) * 14 + var(--rows-width));
+	width: 100%;
 }
