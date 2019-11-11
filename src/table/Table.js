@@ -80,9 +80,14 @@ function Table() {
 					/>
 				) : null}
 			<div className="mainDiv">
-				<div className="titleClass">ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА</div>
 				<table className="tableMain">
-					<thead>
+					<tbody>
+						<tr>
+							<th colSpan={13} className="titleColor">
+								<div className="titleClass">ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА</div>
+							</th>
+						</tr>
+
 						<tr>
 							<th>
 								<div className="header0">Периоды</div>
@@ -115,8 +120,6 @@ function Table() {
 								<div className="header4">VIII</div>
 							</th>
 						</tr>
-					</thead>
-					<tbody>
 						<tr>
 							<td>
 								<div className="rowPeriods">I</div>
@@ -417,11 +420,13 @@ function Table() {
 								<div className="cellWidth4" />
 							</td>
 						</tr>
+						<tr>
+							<th colSpan={13} className="titleColor">
+								<div className="infoMessage">(Переместите один элемент на другой)</div>
+							</th>
+						</tr>
 					</tbody>
 				</table>
-				<div className="infoMessage">
-					{'(Переместите один элемент на другой)'}
-				</div>
 			</div>
 		</div>
 	);

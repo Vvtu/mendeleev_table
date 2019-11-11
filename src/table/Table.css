@@ -38,10 +38,6 @@ td {
 .titleClass {
 	font-size: 20px;
 	font-weight: 500;
-	padding: 8px 0 8px 2px;
-	background-color: #e8a87c;
-	max-width: calc(var(--width) * 14 + var(--rows-width));
-	width: 100%;
 }
 
 .header {
@@ -83,15 +79,19 @@ td {
 }
 
 .bColorRed {
-	background-color: #e27d60;
+	background-color: #ee7637;
 }
 
 .bColorYellow {
-	background-color: #e8a87c;
+	background-color: #fedcae;
 }
 
 .bColorGreen {
-	background-color: #41b3a3;
+	background-color: #3dadc1;
+}
+
+.titleColor {
+	background-color: #fedcae;
 }
 
 .bColorNoColor,
@@ -139,7 +139,7 @@ td {
 
 .infoMessage {
 	padding: 8px 0 8px 2px;
-	background-color: #e8a87c;
+	background-color: #fedcae;
 	max-width: calc(var(--width) * 14 + var(--rows-width));
 	width: 100%;
 }
