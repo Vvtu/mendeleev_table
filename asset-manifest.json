@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mendeleev_table/static/css/main.e06d2cb1.chunk.css",
-    "main.js": "/mendeleev_table/static/js/main.15366e9b.chunk.js",
+    "main.css": "/mendeleev_table/static/css/main.8c6d9d4c.chunk.css",
+    "main.js": "/mendeleev_table/static/js/main.77acb9df.chunk.js",
     "runtime-main.js": "/mendeleev_table/static/js/runtime-main.f559cb85.js",
     "static/js/2.c9b9a9aa.chunk.js": "/mendeleev_table/static/js/2.c9b9a9aa.chunk.js",
     "index.html": "/mendeleev_table/index.html",
-    "precache-manifest.2a097fac1efe531e1e2bdc54afc4507a.js": "/mendeleev_table/precache-manifest.2a097fac1efe531e1e2bdc54afc4507a.js",
+    "precache-manifest.b6d5c21d63f9bc07c5a7c70e7d9813c8.js": "/mendeleev_table/precache-manifest.b6d5c21d63f9bc07c5a7c70e7d9813c8.js",
     "service-worker.js": "/mendeleev_table/service-worker.js"
   },
   "entrypoints": [
     "static/js/runtime-main.f559cb85.js",
     "static/js/2.c9b9a9aa.chunk.js",
-    "static/css/main.e06d2cb1.chunk.css",
-    "static/js/main.15366e9b.chunk.js"
+    "static/css/main.8c6d9d4c.chunk.css",
+    "static/js/main.77acb9df.chunk.js"
   ]
 }
