@@ -1,84 +1,33 @@
 import React, { useState, useCallback } from 'react';
 
 import Cell from './Cell';
-import Elements from './data/Elements';
-import ElementsInteractions from './data/ElementsInteractions';
 import Modal from './modal/Modal';
 
 import './Table.css';
 
 const arr6 = [1, 2, 3, 4, 5, 6];
 
-const keyForMap = (elem1, elem2) => {
-	if (elem1 && elem2 && elem1 !== elem2) {
-		let num1 = Elements[elem1].num;
-		let num2 = Elements[elem2].num;
-		if (num1 > num2) {
-			const a = num1;
-			num1 = num2;
-			num2 = a;
-		}
-		return num1 * 1000 + num2;
-	}
-	return 0;
-};
-
-const keyInteractionsMap = new Map();
-const elementInteractionsMap = new Map();
-
-ElementsInteractions.forEach(({ elem1, elem2, message }) => {
-	// console.log('elem1, elem2, message =', elem1, elem2, message);
-	const key = keyForMap(elem1, elem2);
-	if (keyInteractionsMap.get(key)) {
-		throw new Error(
-			'Попытка повторно добавить информацию для элементов "' +
-			elem1 +
-			'" и "' +
-			elem2 +
-			'".',
-		);
-	}
-	keyInteractionsMap.set(key, message);
-	const set1 = elementInteractionsMap.get(elem1) || new Set();
-	set1.add(elem2);
-	elementInteractionsMap.set(elem1, set1);
-	const set2 = elementInteractionsMap.get(elem2) || new Set();
-	set2.add(elem1);
-	elementInteractionsMap.set(elem2, set2);
-});
-
 function Table() {
-	const [dragedElemKey, setDragedElemKey] = useState('');
-	const [dropElemKey, handleOnDrop] = useState('');
+	const [clickedElement, setClickedElement] = useState('');
 
 	const closeModal = useCallback(() => {
-		setDragedElemKey('');
-		handleOnDrop('');
-	}, []);
+		setClickedElement('');
+	}, [setClickedElement]);
 
-	const activeElementsSet =
-		dragedElemKey !== '' && dropElemKey === ''
-			? elementInteractionsMap.get(dragedElemKey) || new Set()
-			: undefined;
 
 	const cellProps = {
-		activeElementsSet,
-		setDragedElemKey,
-		handleOnDrop,
+		clickedElement,
+		setClickedElement
 	};
 
 	return (
 		<div className="centered">
-			{dragedElemKey &&
-				dropElemKey ? (
-					<Modal
-						dragedElemKey={dragedElemKey}
-						dropElemKey={dropElemKey}
-						closeModal={closeModal}
-						keyInteractionsMap={keyInteractionsMap}
-						keyForMap={keyForMap}
-					/>
-				) : null}
+			{clickedElement ? (
+				<Modal
+					clickedElement={clickedElement}
+					closeModal={closeModal}
+				/>
+			) : null}
 			<div className="mainDiv">
 				<table className="tableMain">
 					<tbody>

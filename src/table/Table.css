@@ -1,69 +1,69 @@
 table {
-	border-collapse: collapse;
-	border-spacing: 0px;
+  border-collapse: collapse;
+  border-spacing: 0px;
 }
 table,
 th,
 td {
-	height: var(--height);
-	border: 1px solid black;
+  height: var(--height);
+  border: 1px solid black;
 }
 .centered {
-	display: flex;
-	justify-content: center;
-	align-self: center;
-	height: 100vh;
-	width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .mainDiv {
-	display: flex;
-	justify-content: center;
-	align-self: center;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
 }
 
 .tableMain {
-	max-width: calc(var(--width) * 14 + var(--rows-width));
-	width: 100%;
+  max-width: calc(var(--width) * 14 + var(--rows-width));
+  width: 100%;
 }
 
 .rowPeriods,
 .header4,
 .header {
-	font-size: 20px;
-	font-weight: 400;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .titleClass {
-	font-size: 20px;
-	font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .header {
-	width: var(--width);
+  width: var(--width);
 }
 
 .header4 {
-	width: calc(var(--width) * 4);
+  width: calc(var(--width) * 4);
 }
 
 .header0 {
-	width: var(--width);
+  width: var(--width);
 }
 .header1 {
-	width: var(--rows-width);
+  width: var(--rows-width);
 }
 
 .cellWidth {
-	width: var(--width);
-	padding: 3px;
+  width: var(--width);
+  padding: 3px;
 }
 .cellWidth3 {
-	width: calc(var(--width) * 3);
+  width: calc(var(--width) * 3);
 }
 .cellWidth4 {
-	width: calc(var(--width) * 4);
+  width: calc(var(--width) * 4);
 }
 
 .rowPeriods,
@@ -72,74 +72,74 @@ td {
 .header,
 .titleClass,
 .infoMessage {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .bColorRed {
-	background-color: #ee7637;
+  background-color: #ee7637;
 }
 
 .bColorYellow {
-	background-color: #fedcae;
+  background-color: #fedcae;
 }
 
 .bColorGreen {
-	background-color: #3dadc1;
+  background-color: #3dadc1;
 }
 
 .titleColor {
-	background-color: #fedcae;
+  background-color: #fedcae;
 }
 
 .bColorNoColor,
 .bColorRed,
 .bColorYellow,
 .bColorGreen {
-	cursor: grab;
-	height: 100%;
-	width: 100%;
-	user-select: none; /* Required to make elements draggable in old WebKit */
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  user-select: none; /* Required to make elements draggable in old WebKit */
 }
 
 .cellKeyAndNum {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cellFlexStart {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .cellFlexEnd {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .cellFlexStart,
 .cellFlexEnd,
 .cellNum {
-	font-size: 10px;
+  font-size: 10px;
 }
 
 .cellKey {
-	font-size: 16px;
-	font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .opacity {
-	opacity: 0.4;
+  opacity: 0.4;
 }
 
 .infoMessage {
-	padding: 8px 0 8px 2px;
-	background-color: #fedcae;
-	max-width: calc(var(--width) * 14 + var(--rows-width));
-	width: 100%;
+  padding: 8px 0 8px 2px;
+  background-color: #fedcae;
+  max-width: calc(var(--width) * 14 + var(--rows-width));
+  width: 100%;
 }

@@ -1,27 +1,36 @@
+import React from 'react';
+
 const elements = {
 	H: {
 		color: 'Red',
 		num: 1,
 		weight: 1.00797,
 		name: 'Водород',
+		description: () => (<div>Описание элемента водород</div>)
 	},
 	He: {
 		color: 'Red',
 		num: 2,
 		weight: 4.0026,
 		name: 'Гелий',
+		description: () => (<div>Описание элемента Гелий</div>)
+
 	},
 	Li: {
 		num: 3,
 		color: 'Red',
 		weight: 6.939,
 		name: 'Литий',
+		description: () => (<div>Описание элемента Литий</div>)
+
 	},
 	Be: {
 		num: 4,
 		color: 'Red',
 		weight: 9.0122,
 		name: 'Бериллий',
+		description: () => (<div>Описание элемента Бериллий</div>)
+
 	},
 	B: {
 		num: 5,

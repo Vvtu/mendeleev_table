@@ -5,37 +5,22 @@ import Elements from './data/Elements';
 
 const Cell = ({
 	elem,
-	activeElementsSet,
-	setDragedElemKey,
-	handleOnDrop,
+	setClickedElement
 }) => {
-	const opacity = activeElementsSet
-		? activeElementsSet.has(elem) ? '' : ' opacity'
-		: '';
+
 	return useMemo(() => {
 		const elemInfo = Elements[elem] || {};
 		let color = elemInfo.color ? ' bColor' + elemInfo.color : '';
-
-		color += opacity;
+		const opacity = elemInfo.description === undefined
+			? ' opacity'
+			: '';
+		color = color + opacity;
 
 		return (
 			<div
 				className={color}
-				draggable
-				onDragStart={() => {
-					handleOnDrop('');
-					setDragedElemKey(elem);
-				}}
-				onDragOver={(e) => {
-					e.preventDefault();
-				}}
-				onDrop={(e) => {
-					e.preventDefault();
-					handleOnDrop(elem);
-				}}
 				onClick={() => {
-					setDragedElemKey('*');
-					handleOnDrop('*');
+					setClickedElement(elem);
 				}}
 			>
 				{elemInfo.color === 'Green' ? (
@@ -67,7 +52,7 @@ const Cell = ({
 					)}
 			</div>
 		);
-	}, [elem, opacity, handleOnDrop, setDragedElemKey]);
+	}, [elem, setClickedElement]);
 };
 
 export default Cell;
