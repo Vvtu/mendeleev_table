@@ -23,6 +23,11 @@ const ElementsInteractions = [
 		elem2: 'C',
 		message: () => <div>Водород и углерод - метан и куча газов</div>
 	},
+	{
+		elem1: 'H',
+		elem2: 'He',
+		message: () => <div>Никак не реагируют</div>
+	},
 ];
 
 export default ElementsInteractions;
