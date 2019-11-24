@@ -18,21 +18,31 @@ td {
   border: 1px solid black;
 }
 
-.main {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  overflow-y: scroll;
+.mainDiv {
+  width: 100%;
+}
+@media screen and (min-width: 65rem) {
+  .mainDiv {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    overflow-x: scroll;
+  }
 }
 
-.mainDiv {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  max-width: var(--max-table-width);
-  overflow-x: scroll;
+.main {
+  height: 100%;
+  width: 100%;
+}
+@media screen and (min-height: 42rem) {
+  .main {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    overflow-y: scroll;
+  }
 }
 
 .rowPeriods,
@@ -74,7 +84,6 @@ td {
 }
 
 .rowPeriods,
-.mainDiv,
 .header0,
 .header,
 .titleClass,
