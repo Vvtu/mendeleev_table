@@ -21,7 +21,7 @@ function Table() {
 	};
 
 	return (
-		<div className="centered">
+		<div className="main">
 			{clickedElement ? (
 				<Modal
 					clickedElement={clickedElement}
@@ -29,7 +29,7 @@ function Table() {
 				/>
 			) : null}
 			<div className="mainDiv">
-				<table className="tableMain">
+				<table>
 					<tbody>
 						<tr>
 							<th colSpan={13} className="titleColor">

@@ -1,3 +1,12 @@
+:root {
+  --height: 3rem;
+  --cell-width: 4.5rem;
+  --cell-width-header1: 3rem;
+  --max-table-width: calc(
+    var(--cell-width) * 14 + var(--cell-width-header1)
+  );
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0px;
@@ -8,62 +17,60 @@ td {
   height: var(--height);
   border: 1px solid black;
 }
-.centered {
+
+.main {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-self: center;
-  height: 100vh;
-  width: 100vw;
+  overflow-y: scroll;
 }
 
 .mainDiv {
   display: flex;
   justify-content: center;
   align-self: center;
-  width: 100%;
-}
-
-.tableMain {
-  max-width: calc(var(--width) * 14 + var(--rows-width));
-  width: 100%;
+  max-width: var(--max-table-width);
+  overflow-x: scroll;
 }
 
 .rowPeriods,
 .header4,
 .header {
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: 400;
 }
 
 .titleClass {
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 
 .header {
-  width: var(--width);
+  width: var(--cell-width);
 }
 
 .header4 {
-  width: calc(var(--width) * 4);
+  width: calc(var(--cell-width) * 4);
 }
 
 .header0 {
-  width: var(--width);
+  width: var(--cell-width);
 }
 .header1 {
-  width: var(--rows-width);
+  width: var(--cell-width-header1);
 }
 
 .cellWidth {
-  width: var(--width);
+  width: var(--cell-width);
   padding: 3px;
 }
 .cellWidth3 {
-  width: calc(var(--width) * 3);
+  width: calc(var(--cell-width) * 3);
 }
 .cellWidth4 {
-  width: calc(var(--width) * 4);
+  width: calc(var(--cell-width) * 4);
 }
 
 .rowPeriods,
@@ -100,8 +107,6 @@ td {
 .bColorGreen {
   cursor: pointer;
   height: 100%;
-  width: 100%;
-  user-select: none; /* Required to make elements draggable in old WebKit */
 }
 
 .cellKeyAndNum {
@@ -125,11 +130,11 @@ td {
 .cellFlexStart,
 .cellFlexEnd,
 .cellNum {
-  font-size: 10px;
+  font-size: 0.6rem;
 }
 
 .cellKey {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -140,6 +145,6 @@ td {
 .infoMessage {
   padding: 8px 0 8px 2px;
   background-color: #fedcae;
-  max-width: calc(var(--width) * 14 + var(--rows-width));
+  max-width: var(--max-table-width);
   width: 100%;
 }
