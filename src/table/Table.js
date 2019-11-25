@@ -371,7 +371,7 @@ function Table() {
 						</tr>
 						<tr>
 							<th colSpan={13} className="titleColor">
-								<div className="infoMessage">(Переместите один элемент на другой)</div>
+								<div className="infoMessage">(Текст)</div>
 							</th>
 						</tr>
 					</tbody>
