@@ -11,7 +11,9 @@ function Modal(props) {
 	} = props;
 	console.log('Modal props = ', props);
 
-	const Description = Elements[clickedElement].description;
+	const Description = Elements[clickedElement].description ||
+		(() => <div>Нет информации по этому элементу</div>);
+
 	console.log('Elements[clickedElement] = ', Elements[clickedElement]);
 	console.log('Elements[clickedElement].description = ', Elements[clickedElement].description);
 
