@@ -1,73 +1,77 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import './Table.css';
-
-import Elements from './data/Elements';
 
 const Cell = ({
 	elem,
-	activeElementsSet,
-	setDragedElemKey,
-	handleOnDrop,
+	setClickedElement,
+	clickedElement,
+	elements
 }) => {
-	const opacity = activeElementsSet
-		? activeElementsSet.has(elem) ? '' : ' opacity'
-		: '';
-	return useMemo(() => {
-		const elemInfo = Elements[elem] || {};
-		let color = elemInfo.color ? ' bColor' + elemInfo.color : '';
+	const elemInfo = elements[elem] || {};
+	const color = elemInfo.color ? ' bColor' + elemInfo.color : '';
+	let isActiveClass;
+	if (elemInfo.description === undefined) {
+		isActiveClass = "cellShadowNormal"
+	} else {
+		if (clickedElement === '') {
+			switch (localStorage.getItem(elem)) {
+				case undefined: isActiveClass = 'cellShadowActiveBlack'; break;
+				case 'true': isActiveClass = 'cellShadowActiveGreen'; break;
+				case 'false': isActiveClass = 'cellShadowActiveRed'; break;
+				default: isActiveClass = 'cellShadowActiveBlack'; break;
+			}
+			// console.log('elem = ', elem)
+			// console.log('isActiveClass = ', isActiveClass)
+		} else {
+			isActiveClass = "cellShadowNormal"
+		}
+	}
 
-		color += opacity;
+	// console.log('Cell elem = ', elem)
+	// console.log('Cell elemInfo = ', elemInfo)
 
-		return (
-			<div
-				className={color}
-				draggable
-				onDragStart={() => {
-					handleOnDrop('');
-					setDragedElemKey(elem);
-				}}
-				onDragOver={(e) => {
-					e.preventDefault();
-				}}
-				onDrop={(e) => {
-					e.preventDefault();
-					handleOnDrop(elem);
-				}}
-				onClick={() => {
-					setDragedElemKey('*');
-					handleOnDrop('*');
-				}}
-			>
-				{elemInfo.color === 'Green' ? (
-					<div className="cellWidth">
-						<div className="cellKeyAndNum">
-							<div className="cellKey">{elem}</div>
-							<div>{elemInfo.num}</div>
-						</div>
-						<div className="cellFlexEnd">
-							<div>{elemInfo.name}</div>
-						</div>
-						<div className="cellFlexStart">
-							<div>{elemInfo.weight}</div>
-						</div>
-					</div>
-				) : (
+
+	return (
+		<div
+			className="relativePosition"
+			onClick={() => {
+				setClickedElement(elem);
+			}}
+		>
+			<div className={isActiveClass}>
+				<div className={color}
+				>
+					{elemInfo.color === 'Green' ? (
 						<div className="cellWidth">
 							<div className="cellKeyAndNum">
-								<div>{elemInfo.num}</div>
 								<div className="cellKey">{elem}</div>
-							</div>
-							<div className="cellFlexStart">
-								<div>{elemInfo.name}</div>
+								<div>{elemInfo.num}</div>
 							</div>
 							<div className="cellFlexEnd">
+								<div>{elemInfo.name}</div>
+							</div>
+							<div className="cellFlexStart">
 								<div>{elemInfo.weight}</div>
 							</div>
 						</div>
-					)}
-			</div>
-		);
-	}, [elem, opacity, handleOnDrop, setDragedElemKey]);
+					) : (
+							<div className="cellWidth">
+								<div className="cellKeyAndNum">
+									<div>{elemInfo.num}</div>
+									<div className="cellKey">{elem}</div>
+								</div>
+								<div className="cellFlexStart">
+									<div>{elemInfo.name}</div>
+								</div>
+								<div className="cellFlexEnd">
+									<div>{elemInfo.weight}</div>
+								</div>
+							</div>
+						)}
+				</div>
+			</div >
+		</div >
+	);
 };
 
 export default Cell;

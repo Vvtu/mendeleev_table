@@ -1,6 +1,6 @@
 :root {
   --height: 3rem;
-  --cell-width: 4.5rem;
+  --cell-width: 4.7rem;
   --cell-width-header1: 3rem;
   --max-table-width: calc(
     var(--cell-width) * 14 + var(--cell-width-header1)
@@ -34,6 +34,7 @@ td {
   height: 100%;
   width: 100%;
 }
+
 @media screen and (min-height: 45rem) {
   .main {
     height: 100vh;
@@ -58,7 +59,7 @@ td {
 }
 
 .header {
-  width: var(--cell-width);
+  width: var(--cell-width) !important;
 }
 
 .header4 {
@@ -75,6 +76,8 @@ td {
 .cellWidth {
   width: var(--cell-width);
   padding: 3px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .cellWidth3 {
   width: calc(var(--cell-width) * 3);
@@ -98,16 +101,13 @@ td {
   background-color: #ee7637;
 }
 
+.titleColor,
 .bColorYellow {
   background-color: #fedcae;
 }
 
 .bColorGreen {
   background-color: #3dadc1;
-}
-
-.titleColor {
-  background-color: #fedcae;
 }
 
 .bColorNoColor,
@@ -147,8 +147,36 @@ td {
   font-weight: 700;
 }
 
-.opacity {
-  opacity: 0.4;
+.relativePosition {
+  position: relative;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.cellShadowNormal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 0px 0px white, 0px 0px 0px white;
+}
+
+.cellShadowActiveBlack,
+.cellShadowActiveGreen,
+.cellShadowActiveRed {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  transition: all 2s;
+}
+
+.cellShadowActiveBlack {
+  box-shadow: 14px 14px 28px black, 3px 10px 10px black;
+}
+.cellShadowActiveGreen {
+  box-shadow: 14px 14px 28px green, 3px 10px 10px green;
+}
+.cellShadowActiveRed {
+  box-shadow: 14px 14px 28px red, 3px 10px 10px red;
 }
 
 .infoMessage {

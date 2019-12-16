@@ -1,78 +1,101 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 
-import Cell from '../Cell';
+import Quiz from './Quiz';
+
 import './Modal.css';
-
-const NO_INFORMATION = () => <div>Нет информации о веществах из этих элементах</div>;
-
-const cellProps = {
-	activeElementsSet: undefined,
-	setDragedElemKey: () => { },
-	handleOnDrop: () => { },
-};
 
 function Modal(props) {
 	const {
-		dragedElemKey,
-		dropElemKey,
-		keyInteractionsMap,
-		keyForMap,
+		clickedElement,
 		closeModal,
+		elements,
 	} = props;
+	const [quizInProgress, setQuizInProgress] = useState(false);
+
 	console.log('Modal props = ', props);
 
-	const Message = keyInteractionsMap.get(
-		keyForMap(dragedElemKey, dropElemKey)) || NO_INFORMATION;
+	const elementInfo = elements[clickedElement];
+
+	const Description = elementInfo.description ||
+		(() => <div>Нет информации по этому элементу</div>);
+
+	console.log('Modal elementInfo = ', elementInfo);
 
 	return (
-		<div onClick={closeModal}>
+		<div>
 			<div className="popup__full_screen_div_opacity" />
 			<div className="popup__full_screen_div">
 				<div className="popup__window">
-					{dragedElemKey === '*' ? (
-						<div className="popup__title">
-							Переместите один элемент на другой
-						</div>
-					) : (
-							<Fragment>
-								<div className="popup__title">Информация:</div>
+					<h1>{elementInfo.name}</h1>
 
-								<div className="modalElementsDiv">
-									<div className="modalElements">
-										<table className="cellWidth">
+					{quizInProgress === false ?
+						(
+							<div className="popup__list">
+								{elementInfo &&
+									<div style={{ paddingBottom: 15 }}>
+										<table>
 											<thead>
 												<tr>
-													<th>
-														<Cell
-															cellProps={cellProps}
-															elem={dragedElemKey}
-														/>
-													</th>
+													<th className="modalTableHeader">
+														Символ элемента
+									</th>
+													<th className="modalTableHeader">
+														Массовая доля элемента в земной коре, %
+									</th>
+													<th className="modalTableHeader">
+														Массовая доля элемента в организме человека, %
+									</th>
+													<th className="modalTableHeader">
+														Признаки по классификации
+									</th>
 												</tr>
 											</thead>
-										</table>
-										<div>и</div>
-										<table className="cellWidth">
-											<thead>
+											<tbody>
 												<tr>
-													<th>
-														<Cell
-															cellProps={cellProps}
-															elem={dropElemKey}
-														/>
-													</th>
+													<td className="modalTableHeader">
+														{clickedElement}
+													</td>
+													<td className="modalTableHeader">
+														{elementInfo.earthMassFraction}
+													</td>
+													<td className="modalTableHeader">
+														{elementInfo.humanBodyMassFraction}
+													</td>
+													<td className="modalTableHeader">
+														{elementInfo.classification}
+													</td>
 												</tr>
-											</thead>
+											</tbody>
 										</table>
 									</div>
-								</div>
-								<div className="popup__list">
-									<Message />
-								</div>
-							</Fragment>
+								}
+								<Description />
+							</div>
+						) : (
+							<div>
+								<Quiz clickedElement={clickedElement} closeModal={closeModal} elements={elements} />
+							</div>
 						)}
-					<div className="modalButton">
-						<button>Закрыть</button>
+
+					<div className="modalButtonContainer">
+						{quizInProgress ?
+							(
+								<button className="modalButton" onClick={(e) => {
+									e.stopPropagation();
+									setQuizInProgress(false);
+								}}>
+									Прекратить тест
+									</button>
+							) : (
+								<button className="modalButton" onClick={(e) => {
+									e.stopPropagation();
+									setQuizInProgress(true);
+								}}>
+									Пройти тест
+								</button>
+							)}
+						<button className="modalButton" onClick={closeModal}>Вернуться к таблице</button>
+
 					</div>
 				</div>
 			</div>

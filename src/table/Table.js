@@ -1,90 +1,50 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import Cell from './Cell';
-import Elements from './data/Elements';
-import ElementsInteractions from './data/ElementsInteractions';
 import Modal from './modal/Modal';
 
 import './Table.css';
 
 const arr6 = [1, 2, 3, 4, 5, 6];
 
-const keyForMap = (elem1, elem2) => {
-	if (elem1 && elem2 && elem1 !== elem2) {
-		let num1 = Elements[elem1].num;
-		let num2 = Elements[elem2].num;
-		if (num1 > num2) {
-			const a = num1;
-			num1 = num2;
-			num2 = a;
-		}
-		return num1 * 1000 + num2;
-	}
-	return 0;
-};
-
-const keyInteractionsMap = new Map();
-const elementInteractionsMap = new Map();
-
-ElementsInteractions.forEach(({ elem1, elem2, message }) => {
-	// console.log('elem1, elem2, message =', elem1, elem2, message);
-	const key = keyForMap(elem1, elem2);
-	if (keyInteractionsMap.get(key)) {
-		throw new Error(
-			'Попытка повторно добавить информацию для элементов "' +
-			elem1 +
-			'" и "' +
-			elem2 +
-			'".',
-		);
-	}
-	keyInteractionsMap.set(key, message);
-	const set1 = elementInteractionsMap.get(elem1) || new Set();
-	set1.add(elem2);
-	elementInteractionsMap.set(elem1, set1);
-	const set2 = elementInteractionsMap.get(elem2) || new Set();
-	set2.add(elem1);
-	elementInteractionsMap.set(elem2, set2);
-});
-
-function Table() {
-	const [dragedElemKey, setDragedElemKey] = useState('');
-	const [dropElemKey, handleOnDrop] = useState('');
+function Table({ elements }) {
+	const [clickedElement, setClickedElement] = useState('*');
+	const [, forceUpdate] = useState();
+	useEffect(() => setClickedElement(''), []);
 
 	const closeModal = useCallback(() => {
-		setDragedElemKey('');
-		handleOnDrop('');
-	}, []);
+		setClickedElement('');
+	}, [setClickedElement]);
 
-	const activeElementsSet =
-		dragedElemKey !== '' && dropElemKey === ''
-			? elementInteractionsMap.get(dragedElemKey) || new Set()
-			: undefined;
 
 	const cellProps = {
-		activeElementsSet,
-		setDragedElemKey,
-		handleOnDrop,
+		clickedElement,
+		setClickedElement,
+		elements,
 	};
 
 	return (
 		<div className="main">
-			{dragedElemKey &&
-				dropElemKey ? (
-					<Modal
-						dragedElemKey={dragedElemKey}
-						dropElemKey={dropElemKey}
-						closeModal={closeModal}
-						keyInteractionsMap={keyInteractionsMap}
-						keyForMap={keyForMap}
-					/>
-				) : null}
+			{clickedElement && clickedElement !== '*' ? (
+				<Modal
+					clickedElement={clickedElement}
+					closeModal={closeModal}
+					elements={elements}
+				/>
+			) : null}
 			<div className="mainDiv">
-				<table className="tableMain">
+				<table>
 					<tbody>
 						<tr>
 							<th colSpan={13} className="titleColor">
-								<div className="titleClass">ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА</div>
+								<div
+									onDoubleClick={() => {
+										localStorage.clear();
+										forceUpdate(String(new Date().getTime()));
+									}}
+									className="titleClass">
+									ПЕРИОДИЧЕСКАЯ СИСТЕМА ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА
+								</div>
 							</th>
 						</tr>
 
@@ -422,7 +382,17 @@ function Table() {
 						</tr>
 						<tr>
 							<th colSpan={13} className="titleColor">
-								<div className="infoMessage">(Переместите один элемент на другой)</div>
+								<div className="infoMessage">
+									<div>
+										ПОЛОЖЕНИЕ НЕКОТОРЫХ БИОГЕННЫХ ХИМИЧЕСКИХ ЭЛЕМЕНТОВ В
+									 ПЕРИОДИЧЕСКОЙ СИСТЕМЕ ХИМИЧЕСКИХ ЭЛЕМЕНТОВ Д.И. МЕНДЕЛЕЕВА
+									</div>
+									<div>
+										Выполнили ученики 9 “А” класса
+										Падучин Александр 10 “Б” класса
+										Исбендиярова Севиндж
+									</div>
+								</div>
 							</th>
 						</tr>
 					</tbody>

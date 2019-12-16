@@ -9,7 +9,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 20;
+  z-index: 220;
 }
 
 .popup__full_screen_div_opacity {
@@ -21,26 +21,44 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 10;
+  z-index: 210;
 }
 
 .popup__window {
   background-color: white;
   border-radius: 5px;
-  box-shadow: grey 0px 13px 26px 0px;
   padding: 10px 25px 10px 20px;
   position: relative;
-  width: calc(var(--width) * 8);
+  width: 100vw;
+  box-shadow: black 0px 13px 26px 0px;
+  font-size: 0.9rem;
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 40px;
+  line-height: 1.2rem;
+}
+
+@media screen and (min-width: 64rem) {
+  .popup__window {
+    width: calc(var(--max-table-width) - 10rem) !important;
+  }
 }
 
 .popup__list {
-  max-height: 500px;
+  padding-top: 15px;
+  max-height: calc(100vh - 10rem);
   overflow-y: scroll;
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 10px;
+}
+
+@media screen and (min-height: 45rem) {
+  .popup__list {
+    max-height: 30rem !important;
+  }
 }
 
 .popup__cancel {
@@ -60,22 +78,117 @@
   align-items: center;
 }
 
-.modalButton {
+.modalButtonContainer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.modalElementsDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modalButton {
+  padding: 10px;
+  background-color: #3dadc1;
+  color: white;
+  border-radius: 5px;
+  box-shadow: black 0px 13px 26px 0px;
+  margin-left: 1rem;
+  min-width: 7rem;
+  cursor: pointer;
 }
 
-.modalElements {
-  height: calc(var(--height) * 2);
-  width: calc(var(--width) * 3);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modalTableHeader {
+  font-size: 0.9rem;
+  text-align: left;
+  text-justify: inter-word;
+  text-indent: 0px;
+  line-height: 1.2rem;
+  padding: 0px 5px;
+}
+
+.quizTitleFalse,
+.quizTitleRight,
+.quizTitle {
+  margin-top: 1.4rem;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+}
+
+.quizTitle {
+  background-color: #fedcae;
+  color: black;
+  position: relative;
+}
+
+.quizTitleFalse {
+  color: black;
+  background-color: #ee7637;
+}
+
+.quizTitleRight {
+  color: white;
+  background-color: green;
+}
+
+.quizFooter {
+  margin-top: 0.6rem;
+  font-size: 1.2rem;
+  color: grey;
+}
+
+.quizItem {
+  margin-top: 1.4rem;
+  font-size: 1.2rem;
+  position: relative;
+  height: 2rem;
+  cursor: pointer;
+}
+.colorOn {
+  color: #3dadc1;
+}
+.colorOff {
+  color: black;
+}
+.quizCheckboxOff,
+.quizCheckboxOn {
+  position: absolute;
+  top: 0px;
+  left: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.quizCheckboxOff {
+  background-color: grey;
+}
+.quizCheckboxOn {
+  background-color: #3dadc1;
+}
+
+.quizNumber {
+  font-size: 1.2rem;
+}
+
+.quizQuestion {
+  position: absolute;
+  top: 0px;
+  left: 2rem;
+  height: 1rem;
+}
+
+.quizButton {
+  position: absolute;
+  padding: 10px;
+  background-color: #3dadc1;
+  color: white;
+  border-radius: 5px;
+  top: 0.3rem;
+  left: 20rem;
+  cursor: pointer;
+}
+
+.quizLine {
+  background-color: white;
+  height: 2px;
+  width: 100%;
+  margin: 10px 0;
 }
