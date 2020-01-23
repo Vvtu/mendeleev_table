@@ -22,12 +22,16 @@ function Table() {
 
 	return (
 		<div className="main">
-			{clickedElement ? (
-				<Modal
-					clickedElement={clickedElement}
-					closeModal={closeModal}
-				/>
-			) : null}
+			{dragedElemKey &&
+				dropElemKey ? (
+					<Modal
+						dragedElemKey={dragedElemKey}
+						dropElemKey={dropElemKey}
+						closeModal={closeModal}
+						keyInteractionsMap={keyInteractionsMap}
+						keyForMap={keyForMap}
+					/>
+				) : null}
 			<div className="mainDiv">
 				<table>
 					<tbody>
